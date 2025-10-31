@@ -15,7 +15,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        buildConfigField("String", "NASA_API_KEY", "\"GSeUvr5bnwfsIC6GjSvYCEily6xGalRhSafXBdHW\"")
+        buildConfigField("String", "NASA_API_KEY", "\"\"")
     }
 
     buildTypes {
