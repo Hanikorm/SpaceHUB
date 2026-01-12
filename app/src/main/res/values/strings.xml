@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SpaceHUB</string>
+    <string name="apod_image_description">Астрономическое изображение дня</string>
 </resources>

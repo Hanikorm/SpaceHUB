@@ -1,11 +1,16 @@
 package com.hanikorm.spacehub.model
 
-import com.squareup.moshi.Json
+import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Apod(
-    val title: String,
-    val date: String,
-    val explanation: String,
-    @Json(name = "url") val imageUrl: String?,
-    @Json(name = "media_type") val mediaType: String
-)
+    val date: String?,
+    val explanation: String?,
+    @SerializedName("media_type")
+    val mediaType: String?,
+    val title: String?,
+    val url: String?,
+    val hdurl: String?
+) : Parcelable

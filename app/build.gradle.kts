@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
+    id("kotlin-parcelize") // ДОБАВЛЕНО: Этот плагин нужен для передачи объектов между экранами
 }
 
 android {
@@ -15,7 +16,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        buildConfigField("String", "NASA_API_KEY", "\"\"")
+        buildConfigField("String", "NASA_API_KEY", "\"${property("NASA_API_KEY")}\"")
     }
 
     buildTypes {
@@ -24,7 +25,6 @@ android {
         }
     }
 
-    // ВАЖНО: корректный синтаксис compileOptions
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -47,9 +47,13 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
 
-    // Retrofit + Moshi
+    // Retrofit + Gson
     implementation(libs.retrofit)
-    implementation(libs.converter.moshi)
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.google.code.gson:gson:2.10.1")
+
+    // OkHttp Logger
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
     // Coroutines
     implementation(libs.kotlinx.coroutines.android)
@@ -62,4 +66,7 @@ dependencies {
     // Glide для картинок
     implementation(libs.glide)
     ksp(libs.glide.ksp)
+
+    // ДОБАВЛЕНО: Библиотека для приближения изображений
+    implementation("com.github.chrisbanes:PhotoView:2.3.0")
 }

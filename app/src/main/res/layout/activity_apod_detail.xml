@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ApodDetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/detailImageView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
+            android:background="#000000"
+            android:contentDescription="Детальное изображение APOD" />
+        
+        <TextView
+            android:id="@+id/videoLinkTextView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:gravity="center"
+            android:text="▶️ Нажмите, чтобы посмотреть видео"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:background="#000000"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/detailTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="?android:attr/textColorPrimary"
+                tools:text="Название картинки" />
+
+            <TextView
+                android:id="@+id/detailDateTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="14sp"
+                android:textColor="?android:attr/textColorSecondary"
+                tools:text="2024-05-20" />
+
+            <TextView
+                android:id="@+id/detailExplanationTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textSize="16sp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="?android:attr/textColorSecondary"
+                tools:text="Полное описание картинки дня, которое может быть очень длинным и занимать несколько строк, поэтому оно находится внутри ScrollView." />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
